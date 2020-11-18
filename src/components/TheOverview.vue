@@ -176,8 +176,9 @@ export default {
     ...mapGetters(["getIncomeTotal", "getExpenseTotal", "getTransferTotal"]),
     netAmount() {
       return (
-        parseFloat(this.getIncomeTotal) - parseFloat(this.getExpenseTotal)
-      ).toString();
+        parseFloat(this.getIncomeTotal) -
+        (parseFloat(this.getTransferTotal) + parseFloat(this.getExpenseTotal))
+      ).toFixed(2);
     }
   }
 };

@@ -8,10 +8,25 @@ export default new Vuex.Store({
   state: {
     accounts: accounts.account,
     transactions: trxs.transaction,
+    transaction: {},
     balances: balances
   },
-  mutations: {},
-  actions: {},
+  mutations: {
+    ADD_TRANSACTION(state, transaction) {
+      state.transaction = { ...transaction };
+    },
+    REMOVE_TRANSACTION(state) {
+      state.transaction = {};
+    }
+  },
+  actions: {
+    getTransaction({ commit }, id) {
+      const query = this.state.transactions.find(
+        transaction => transaction.id === id
+      );
+      commit("ADD_TRANSACTION", query);
+    }
+  },
   getters: {
     getIncomeTransactions: state =>
       state.transactions.filter(
