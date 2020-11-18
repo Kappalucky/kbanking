@@ -5,7 +5,7 @@
         <div
           class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
         >
-          <table class="max-w-full divide-y divide-gray-200 table-auto">
+          <table class="max-w-full divide-y divide-gray-200 table-auto mx-auto">
             <thead>
               <tr>
                 <th
@@ -20,7 +20,7 @@
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
               <tr v-for="transaction in transactions" :key="transaction.id">
-                <td class="px-6 py-4 whitespace-no-wrap">
+                <td class="px-6 py-4 whitespace-normal">
                   <div class="flex items-center">
                     <div
                       class="flex flex-shrink-0 h-10 w-10 items-center justify-center"
