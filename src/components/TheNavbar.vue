@@ -31,6 +31,8 @@
             <button
               class="p-1 border-2 border-transparent text-gray-400 rounded-full hover:text-white focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
               aria-label="Notifications"
+              aria-haspopup="true"
+              v-on:click="notificationMenu = !notificationMenu"
             >
               <font-awesome-icon :icon="['far', 'bell']" />
             </button>
@@ -88,6 +90,20 @@
                   </ul>
                 </div>
               </div>
+              <!-- Notification Menu -->
+              <div
+                class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg"
+                v-show="notificationMenu"
+              >
+                <div
+                  class="py-1 rounded-md bg-white shadow-xs"
+                  role="menu"
+                  aria-orientation="vertical"
+                  aria-labelledby="user-menu"
+                >
+                  <h4>There are no notifications</h4>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -104,6 +120,7 @@ export default {
   data() {
     return {
       profileMenu: false,
+      notificationMenu: false,
       title: "KB",
       navbarItems: [],
       dropdownItems: [
