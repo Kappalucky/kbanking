@@ -1,23 +1,23 @@
 <template>
   <div class="home">
-    <TheGreeting />
+    <!--<TheGreeting />-->
     <TheOverview />
-    <Transaction />
+    <!--<Transaction />-->
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import TheGreeting from "@/components/TheGreeting.vue";
+//import TheGreeting from "@/components/TheGreeting.vue";
 import TheOverview from "@/components/TheOverview.vue";
-import Transaction from "@/components/Transaction.vue";
+//import Transaction from "@/components/Transaction.vue";
 
 export default {
   name: "Home",
   components: {
-    TheGreeting,
-    TheOverview,
-    Transaction
+    //TheGreeting,
+    TheOverview
+    //Transaction
   }
 };
 </script>

@@ -33,7 +33,6 @@
               aria-label="Notifications"
             >
               <font-awesome-icon :icon="['far', 'bell']" />
-              <i class="far fa-bell"></i>
             </button>
 
             <!-- Profile dropdown -->
