@@ -1,6 +1,6 @@
 <template>
   <header>
-    <nav class="bg-gray-800">
+    <nav style="backgroundColor:#f66652;">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="relative flex items-center justify-between h-16">
           <div class="flex items-center">
@@ -108,7 +108,7 @@ export default {
       navbarItems: [],
       dropdownItems: [
         {
-          text: "Profile",
+          text: "Account",
           path: "#"
         },
         {

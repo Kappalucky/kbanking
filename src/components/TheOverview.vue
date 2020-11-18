@@ -113,7 +113,7 @@
             <h2
               class="text-sm xl:text-lg text-gray-600 font-bold tracking-normal"
             >
-              $357,655
+              ${{ getIncomeTotal }}
             </h2>
           </div>
           <div class="p-1">
@@ -123,7 +123,7 @@
             <h2
               class="text-sm xl:text-lg text-gray-600 font-bold tracking-normal"
             >
-              $189,955
+              ${{ getExpenseTotal }}
             </h2>
           </div>
           <div class="p-1">
@@ -132,11 +132,27 @@
             >
               Net
             </p>
-            <h2
-              class="text-sm xl:text-lg text-gray-600 font-bold tracking-normal"
-            >
-              $888,546
-            </h2>
+            <template v-if="netAmount > 0">
+              <h2
+                class="text-sm xl:text-lg text-green-600 font-bold tracking-normal"
+              >
+                ${{ netAmount }}
+              </h2>
+            </template>
+            <template v-if="netAmount === 0">
+              <h2
+                class="text-sm xl:text-lg text-gray-600 font-bold tracking-normal"
+              >
+                ${{ netAmount }}
+              </h2>
+            </template>
+            <template v-if="netAmount < 0">
+              <h2
+                class="text-sm xl:text-lg text-red-600 font-bold tracking-normal"
+              >
+                ${{ netAmount }}
+              </h2>
+            </template>
           </div>
         </div>
         <br />
@@ -146,7 +162,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapGetters } from "vuex";
 
 export default {
   name: "TheOverview",
@@ -156,7 +172,13 @@ export default {
   computed: {
     ...mapState({
       accounts: state => state.accounts
-    })
+    }),
+    ...mapGetters(["getIncomeTotal", "getExpenseTotal", "getTransferTotal"]),
+    netAmount() {
+      return (
+        parseFloat(this.getIncomeTotal) - parseFloat(this.getExpenseTotal)
+      ).toString();
+    }
   }
 };
 </script>
