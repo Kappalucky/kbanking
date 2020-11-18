@@ -12,5 +12,8 @@ export default new Vuex.Store({
   },
   mutations: {},
   actions: {},
+  getters: {
+    userNameInitial: state => state.accounts.account[0].displayedName[0]
+  },
   modules: {}
 });

@@ -45,11 +45,16 @@
                   aria-haspopup="true"
                   v-on:click="profileMenu = !profileMenu"
                 >
-                  <img
-                    class="h-8 w-8 rounded-full"
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  <div
+                    class="h-8 w-8 rounded-full bg-black flex justify-center items-center"
                     alt=""
-                  />
+                  >
+                    <h1 class="font-bold">
+                      <template v-for="account in accounts">
+                        {{ account.displayedName.slice(0, 1) }}
+                      </template>
+                    </h1>
+                  </div>
                 </button>
               </div>
               <div
@@ -92,6 +97,8 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   name: "TheNavbar",
   data() {
@@ -110,6 +117,9 @@ export default {
         }
       ]
     };
+  },
+  computed: {
+    ...mapState({ accounts: state => state.accounts })
   },
   methods: {
     logout() {

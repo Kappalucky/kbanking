@@ -1,11 +1,11 @@
 <template>
-  <div class="overview">
+  <div class="overview border-t">
     <div
       class="flex flex-col md:flex-row mx-auto w-full bg-white shadow rounded p-12"
       v-for="account in accounts"
       :key="account.id"
     >
-      <div class="w-full md:w-1/3 p-6">
+      <div class="w-full md:w-1/3 p-6 border m-2">
         <div class="flex items-center">
           <div class="ml-3">
             <h5 class="text-gray-800 font-medium text-base">
@@ -54,7 +54,7 @@
           </template>
         </div>
       </div>
-      <div class="w-full md:w-1/3 p-6">
+      <div class="w-full md:w-1/3 p-6 border m-2">
         <div class="flex items-center">
           <div class="ml-3">
             <h5 class="text-gray-800 font-medium text-base">
@@ -103,7 +103,7 @@
           </template>
         </div>
       </div>
-      <div class="w-full md:w-1/3 p-6 flex justify-center">
+      <div class="w-full md:w-1/3 p-6 flex justify-center border m-2">
         <br />
         <div class="flex items-center justify-between">
           <div class="p-1">
